@@ -1,13 +1,14 @@
-import { useState } from 'react'
 import './App.css'
 import people from './data'
 import ReviewList from './ReviewList'
 
 function App() {
-	const [index, setIndex] = useState(0)
-
-	return <ReviewList people={people} index={index} />
+	return (
+		<div>
+			<h2 className='title'>reviews app</h2>
+			<ReviewList people={people} />
+		</div>
+	)
 }
 
 export default App
-
