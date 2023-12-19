@@ -7,21 +7,28 @@ const Person = ({ people }) => {
 
 	const nextPerson = () => {
 		setIndex((currentIndex) => {
-            const newIndex = currentIndex + 1
-            if (newIndex > people.length - 1) {
-                return 0
-            }
+			const newIndex = currentIndex + 1
+			if (newIndex > people.length - 1) {
+				return 0
+			}
 			return newIndex
 		})
 	}
 	const prevPerson = () => {
 		setIndex((currentIndex) => {
-            const newIndex = currentIndex - 1
-            if (newIndex < 0) {
-                return people.length - 1
-            }
+			const newIndex = currentIndex - 1
+			if (newIndex < 0) {
+				return people.length - 1
+			}
 			return newIndex
 		})
+	}
+	const randomPerson = () => {
+		let randomPerson = Math.floor(Math.random() * people.length)
+		if (randomPerson === index) {
+			randomPerson = index + 1
+		}
+		setIndex(randomPerson)
 	}
 
 	return (
@@ -44,6 +51,11 @@ const Person = ({ people }) => {
 					<button className='next-btn' onClick={nextPerson}>
 						<FaChevronRight />
 					</button>
+					<div>
+						<button className='btn btn-hipster' onClick={randomPerson}>
+							surprise me
+						</button>
+					</div>
 				</div>
 			</article>
 		</main>
